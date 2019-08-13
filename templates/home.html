@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<center>
+{% if user.is_authenticated %}
+    <div style="margin: auto; padding: 30px; ">
+        <div class="jumbotron">
+            <h1 class="display-4">Hi {{ user.username }},</h1>
+            <p class="lead">Welcome to online voting portal.</p>
+            <hr class="my-4">
+            <p>Your Aadhar id: {{ request.user.voters.aadhar }}</p>
+            <p>Your Location: {{ request.user.voters.location }}</p>
+            <p>Your Voting status: {{ request.user.voters.votingstatus }}</p>
+            <hr class="my-4">
+            <div class="row">
+                <div style="width: 10px"></div>
+                <a class="btn btn-primary" role="button" href="{% url 'parties' %}">Parties</a>
+                <div style="width: 30px"></div>
+                <a class="btn btn-primary" role="button" href="{% url 'votenow' %}">Vote Now</a>
+            </div>
+        </div>
+    </div>
+ <p><a href="{% url 'logout' %}">logout</a></p>--->
+  {% else %}
+  <br>
+  <br>
+  <center>
+  <a href="{% url 'login' %}">login</a>
+  <!----<a href="{% url 'signup' %}">signup</a>--->
+  </center>
+    {% endif %}
+{% endblock %}
+</center>

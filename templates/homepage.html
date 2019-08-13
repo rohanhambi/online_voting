@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+}
+
+.active {
+  background-color: #4CAF50;
+}
+</style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<ul>
+  <li><a href="#home">Every vote counts!</a></li>
+  <li style="float:right"><a class="active" href="{%url 'logout'%}">LogOut</a></li>
+</ul>
+<div style="margin: auto; padding: 30px; ">
+        <div class="jumbotron">
+            <h1 class="display-4">Hi {{ user.username }},</h1>
+            <p class="lead">Welcome to online voting portal.</p>
+            <hr class="my-4">
+            <p>Your Aadhar id: {{ request.user.voters.aadhar }}</p>
+            <p>Your Location: {{ request.user.voters.location }}</p>
+            <p>Your Voting status: {{ request.user.voters.votingstatus }}</p>
+            <hr class="my-4">
+            <div class="row">
+                <div style="width: 10px"></div>
+                <a class="btn btn-primary" role="button" href="{% url 'parties' %}">Parties</a>
+                <div style="width: 30px"></div>
+                <button class="btn btn-info" type="button">Vote now</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
