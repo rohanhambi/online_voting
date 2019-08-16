@@ -3,6 +3,7 @@ from django.views import generic
 from django.views.generic import ListView,TemplateView
 from django.shortcuts import render, redirect
 from .models import *
+from .forms import PartiesForm
 #from .forms import CustomUserCreationForm
 
 
@@ -23,17 +24,25 @@ def homepage(request):
                   context={"voter": Voters.objects.all})
 
 
+def parties_new(request):
+    form = PartiesForm()
+    return render(request, 'parties.html', {'form': form})
+'''
+def parties_hi(request):
+    parties_logo = request.GET["parties_logo"]
+    parties_description = request.GET["parties_description"]
+    parties_info = Parties(parties_logo=parties_logo,
+                               parties_description=parties_description
+                               )
+    parties_info.save()
+    all_parties = Parties.objects.all()
+    return render(request, 'parties.html', {'parties': all_partie
+
 def parties(request):
     return redirect(request=request,
                   template_name="parties.html",
                   context={"parties": Parties.objects.all})
-
-
-class PartiesView(ListView):
-    template_name = 'parties.html'
-    def get_queryset(self):
-        return Parties.objects_all()
-
+'''
 
 def votenow(request):
     return redirect(request=request,

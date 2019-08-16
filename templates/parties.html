@@ -3,9 +3,10 @@
 Parties
 {% endblock %}
 
-
+{% load static %}
+<a href="{% url 'parties_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
 {% block content %}
-    <form>
+    <form method="GET">
                 {% csrf_token %}
         <div class="card mb-3">
             <div class="card-body">
@@ -19,8 +20,8 @@ Parties
                     </thead>
                     <tbody>
                             <tr>
-                                <td>{{ Doraa }}</td>
-                                <td>{{ I  }}</td>
+                                <td>{{  form.as_p }}</td>
+                                <td>{{ form.as_p  }}</td>
                             </tr>
                     </tbody>
                 </table>
@@ -30,7 +31,7 @@ Parties
 
 
         <input class="btn btn-success" type="submit" value="Submit">
-    </form>
+    </>
 
 
 {%endblock%}
