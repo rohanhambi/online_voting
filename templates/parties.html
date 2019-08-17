@@ -4,35 +4,57 @@ Parties
 {% endblock %}
 
 {% load static %}
-<a href="{% url 'parties_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+<a href="{% url 'parties' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
 {% block content %}
-    <form method="GET">
-                {% csrf_token %}
+    <form method="get" class="get-form">{% csrf_token %}
         <div class="card mb-3">
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Party logo</th>
+                            <th>Party name</th>
                             <th>description</th>
+                            <th>Images</th>
                         </tr>
                     </thead>
                     <tbody>
-                            <tr>
-                                <td>{{  form.as_p }}</td>
-                                <td>{{ form.as_p  }}</td>
-                            </tr>
+                      <tr>
+                        <td><b>hello</b></td>
+                        <td><p>paragraph</p></td>
+                        <td><img src="/static/dora.png" /></td>
+                      </tr>
+                       <tr>
+                           <td><p><b>Bharatiya Janata Party</b></p></td>
+                           <td><p>The Bharatiya Janata Party is one of the two major political parties in India, along with the Indian National Congress.
+                               As of 2018, it is the country's largest political party in terms of representation in the national parliament and state assemblies,
+                               and it is the world's largest party in terms of primary membership</p></td>
+                       </tr>
+                        <tr>
+                               <td><p><b>Indian National Congress</b></p></td>
+                               <td><p>The Indian National Congress is a political party in India with widespread roots.
+                                   Founded in 1885, it was the first modern nationalist movement to emerge in the British Empire in Asia and Africa.</p></td>
+                        </tr>
+                        <tr>
+                               <td><p><b>Communist Party of India</b></p></td>
+                               <td><p>The Communist Party of India is a far-left political party in India. It is the oldest communist party in India.
+                                   The CPI is one of the eight national parties of India.
+                                   There are different views on exactly when it was founded.
+                                   The date maintained as the foundation day by the CPI is 26 December 1925.</p></td>
+                        </tr>
+                        <tr>
+                               <td><p><b>Bahujan Samaj Party</b></p></td>
+                               <td><p>The Bahujan Samaj Party is a national level political party in India. By vote share in the 2019 Indian general election,
+                                   it is the country's fourth-largest party with ten seats in the Lok Sabha,
+                                   all of which won in the northern state of Uttar Pradesh, the BSP's main base of support.</p></td>
+                        </tr>
                     </tbody>
                 </table>
               </div>
             </div>
           </div>
-
-
-        <input class="btn btn-success" type="submit" value="Submit">
+        <a class="btn btn-primary" role="button" href="{% url 'homepage' %}"><-Back</a>
     </>
 
 
 {%endblock%}
-
